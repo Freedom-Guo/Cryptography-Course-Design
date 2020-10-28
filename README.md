@@ -1,87 +1,90 @@
-# cryptography
-2018年2016级华中科技大学计算机学院密码学课程设计
+# Cryptography Course Design
+
+School of Computer Science, Huazhong University of Science and Technology
+
+in 2018 
 
 ## SPN
-### 基础SPN算法的实现与密码分析
-**文件名：SPN_inital**
+### Implementation of basic SPN algorithm and cryptanalysis
+**File Name：SPN_inital.cpp**
 
-程序说明：
+Programming Description：
 
-- 功能1 SPN加密
+- Function 1: SPN Encryption
 
-输入明文，获得密文
+	Input: plaintext
 
-- 功能2 SPN解密
+	Output: ciphertext
 
-直接将功能1获得的密文进行解密得到相应的明文
+- Function 2: SPN Decryption
 
-- 功能3、4 线性攻击、差分攻击
-
-不进行24位密钥穷举，只获得8位子密钥
-
-**文件名：spn3.0**
-
-程序说明：
-
-- 功能1 SPN加密
-
-输入明文，获得密文
-
-- 功能2 线性攻击
-
-首先输出8位子密钥，输出分析时间
-
-然后进行穷举，得到32位子密钥，输出所用时间
-
-- 功能3 差分攻击
-
-首先输出8位子密钥，输出分析时间
-
-然后进行穷举，得到32位子密钥，输出所用时间
+	Input: ciphertext ( F1's output )
+	
+	output: plaintext ( F1's input )
 
 
-###增强SPN算法的实现
+- Function3、4: Linear Attack, Differential Attack
 
-**文件名：SPN_plus**
+	Instead of 24 - bit key exhaustion, only 8 - bit keys are obtained
 
-程序说明：
+**File Name：SPN_analyse.cpp**
 
-输入2个16位16进制数，用空格隔开即可。
+Programming Description：
 
-输出为32位16进制密文以及32位16进制明文，中间空行隔开。
+- Function 1: SPN Encryption
 
-#随机性检测
-文件夹中的plaintext.txt为明文文件，ciphertext为密文文件
-因为在mac下实现的课设，测试程序是在windows下实现的，所以借用的同学电脑进行的测试。
+	Input: plaintext
+
+	Output: ciphertext
+
+- Function 2 Linear Attack
+
+	1. Get the 8-bit key and the analysis time
+
+	2. Through method of exhaustion, get 32 key, and the analysis time
+
+- Function 3 Differential Attack
+
+	1. Get the 8-bit key and the analysis time
+
+	2. Through method of exhaustion, get 32 key, and the analysis time
+
+
+### Implementation of Enhance SPN algorithm
+
+**File Name：SPN_plus.cpp**
+
+Programming Description：
+
+- Input: Two 16-bit hexadecimal Numbers separated by Spaces
+	
+- Output: 32-bit hexadecimal ciphertext and hexadecimal plaintext separated by empty lines
+
 
 # RSA
 --
-**文件名：rsa_final**
+**File Name：rsa.cpp**
 
-程序说明：
+Programming Description:
 
-输出：
+- Output:
 
-公钥 e n
+	Public key e n
 
-私钥 d p q
+	Private key D p Q
 
-明文 m
+	Plaintext m
 
-加密密文 c
+	Ciphertext C
 
-不同解密方式下的明文结果
+	Plaintext results in different decryption methods
 
-# 彩虹表
+# Rainbow table
 --
-**文件名：rainbow**
+**File Name：rainbow.cpp**
 
-程序中生成的彩虹表文件名为rainbow.txt
+The main function in the source program contains two test programs
 
-其路径为/Users/hustguo/Desktop/U201614848_郭倜维_密码学课设/rainbow.txt
+- Manually enter the test program after the rainbow table is generated
 
-源程序中主函数内部包括两个测试程序
-
-其一是生成彩虹表之后的手动输入测试程序
-
-其二是在彩虹表后的自动测试程序
+- An automated test program behind the rainbow table
